@@ -1,32 +1,34 @@
-import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
+import { use } from "react";
 
 const Register = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [name, setName] = useState("");
-  const [photoURL, setPhotoURL] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+
+  const { createUser, setUser } = use(AuthContext)
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    // Password validation
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasLowercase = /[a-z]/.test(password);
-    if (password.length < 6 || !hasUppercase || !hasLowercase) {
-      setPasswordError(
-        "Password must be at least 6 characters and contain uppercase & lowercase letters"
-      );
-      return;
-    } else {
-      setPasswordError("");
-    }
-
-    // TODO: Add Firebase signup logic here
-    console.log({ name, photoURL, email, password });
+    const name = e.target.name.value 
+    const photo = e.target.photo.value 
+    const email = e.target.email.value
+    const password = e.target.password.value
+    console.log(name, photo, email, password)
+    createUser(email, password)
+      .then(result => {
+        const user = result.user
+        setUser(user)
+  
+      })
+      .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+            // ..
+          });
   };
+
+  
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
@@ -41,10 +43,9 @@ const Register = () => {
             </label>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               className="input input-bordered border-2 border-black w-full"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
@@ -56,10 +57,9 @@ const Register = () => {
             </label>
             <input
               type="text"
+              name="photo"
               placeholder="Your Photo URL"
               className="input border-2 border-black input-bordered w-full"
-              value={photoURL}
-              onChange={(e) => setPhotoURL(e.target.value)}
             />
           </div>
 
@@ -70,10 +70,9 @@ const Register = () => {
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="input border-2 border-black input-bordered w-full"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -84,22 +83,13 @@ const Register = () => {
               <span className="label-text font-semibold">Password</span>
             </label>
             <input
-              type={showPassword ? "text" : "password"}
+              type="password"
               placeholder="Enter your password"
+              name="password"
               className="input border-2 border-black input-bordered w-full pr-10"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span
-              className="absolute right-3 top-[38px] cursor-pointer text-gray-500"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
-            {passwordError && (
-              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
-            )}
+
           </div>
 
           {/* Register Button */}

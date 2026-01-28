@@ -1,6 +1,17 @@
+import { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext)
+  const handleLogout = () => {
+    logOut().then(() => {
+      alert('log out successful')
+    }).catch((error) => {
+      console.log(error)
+    });
+
+  }
   const navLinkClass = ({ isActive }) =>
     isActive ? "text-primary font-semibold" : "";
 
@@ -64,9 +75,15 @@ const Navbar = () => {
 
       {/* Right: Static Login Button */}
       <div className="navbar-end">
-        <Link to="/auth/login" className="btn btn-sm btn-primary">
-          Login
-        </Link>
+        {
+          user ? <Link onClick={handleLogout} to="/auth/login" className="btn btn-sm btn-primary">
+            LogOut
+          </Link>
+            :
+            <Link to="/auth/login" className="btn btn-sm btn-primary">
+              Login
+            </Link>
+        }
       </div>
     </div>
   );

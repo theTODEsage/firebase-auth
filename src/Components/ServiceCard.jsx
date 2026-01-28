@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const ServiceCard = ({ service }) => {
   return (
@@ -34,9 +35,9 @@ const ServiceCard = ({ service }) => {
 
         {/* View Details Button */}
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-sm sm:btn-md btn-outline btn-primary w-full sm:w-auto">
+          <Link to={``} className="btn btn-sm sm:btn-md btn-outline btn-primary w-full sm:w-auto">
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>

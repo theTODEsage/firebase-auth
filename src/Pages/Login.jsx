@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import { use } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {signIn} = use(AuthContext)
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", { email, password });
-    // TODO: Add Firebase login logic here
+    const email = e.target.email.value 
+    const password = e.target.password.value 
+    
+    signIn(email, password)
+    .then(result =>{
+      const user = result.user
+      console.log(user)
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode, errorMessage)
+  });
   };
 
   return (
@@ -28,8 +38,6 @@ const Login = () => {
               name="email"
               placeholder="Enter your email"
               className="input input-bordered border-2 border-black w-full"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)} // ✅ added
               required
             />
           </div>
@@ -40,20 +48,12 @@ const Login = () => {
               <span className="label-text font-semibold">Password</span>
             </label>
             <input
-              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="input input-bordered border-2 border-black w-full pr-10"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)} // ✅ added
               required
             />
-            <span
-              className="absolute right-3 top-[38px] cursor-pointer text-gray-500"
-              onClick={() => setShowPassword(!showPassword)} // ✅ toggle
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
+            
             <label className="label">
               <a href="/forgot-password" className="label-text-alt text-blue-500 link link-hover">
                 Forgot Password?
