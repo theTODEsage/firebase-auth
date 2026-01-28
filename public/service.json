@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://imgs.search.brave.com/xH106sDpCld-Byj2HDcxRdZwhvi91ZPmV6BfkEPUOhM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFWOW1RKyszSkwu/anBn",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://imgs.search.brave.com/hAE1yIorrbjDcQjkienRMBPE_48G0rgtED2FMJL1qXs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE1Lzk1LzcyLzEw/LzM2MF9GXzE1OTU3/MjEwNDdfVjNlanlY/QzZrUE5kMEYyZFk2/RHFEN1V4MEZDZ1Ra/MjAuanBn",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Setup",
+    "providerName": "WarmPaws Comfort",
+    "providerEmail": "support@warmpaws.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Installation of heated pet beds to ensure your furry friend stays cozy indoors.",
+    "image": "https://imgs.search.brave.com/dR8hDQsZJux0-1FmODywyMYBlsJylyZbzK5LTYeO6AA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jbGF3/c2FibGUuY29tL2Nk/bi9zaG9wL2ZpbGVz/L2RvbnV0LWhlYXRl/ZC1wZXQtYmVkLW1h/aW4tcGljdHVyZS53/ZWJwP3Y9MTcwNDg3/MDYxMiZ3aWR0aD01/MzM",
+    "category": "Accessories"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Paw Wax Treatment",
+    "providerName": "FurryFeet Spa",
+    "providerEmail": "contact@furryfeet.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Protective paw wax application to prevent cracking and irritation from snow and salt.",
+    "image": "https://imgs.search.brave.com/tazxdqGxluphlr_A2_5lHWgM3ynxF1k_YF4ndZ3xWbA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/cHJkLmNvbnRlbnQu/bWV0YW1vcnBob3Np/cy5jb20vd3AtY29u/dGVudC91cGxvYWRz/L3NpdGVzLzIvMjAy/Mi8wNy9kb2ctZWFy/LXdheC1zYWZldHku/anBn",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Cozy Sweater & Scarf Combo",
+    "providerName": "SnugglePets Boutique",
+    "providerEmail": "hello@snugglepets.com",
+    "price": 35,
+    "rating": 4.8,
+    "slotsAvailable": 2,
+    "description": "Stylish winter outfits including sweaters and scarves to keep your pets warm and cute.",
+    "image": "https://imgs.search.brave.com/3-neVNtxZ4OpHuK_L_yxwOjLdAdyBKzHkCqU1KZEeBA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzgxSFlBbmpWS1lM/LmpwZw",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Health Check & Vaccination",
+    "providerName": "VetCare Winter Clinic",
+    "providerEmail": "appointments@vetcare.com",
+    "price": 50,
+    "rating": 5.0,
+    "slotsAvailable": 3,
+    "description": "Comprehensive winter health check-up including vaccinations and cold-weather care tips.",
+    "image": "https://imgs.search.brave.com/a-3uAGFH9jCjURCDR7c1V7mUOJWNOKkxJST5ckiFG0k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bW9ycmlzYW5pbWFs/Zm91bmRhdGlvbi5v/cmcvc2l0ZXMvZGVm/YXVsdC9maWxlcy9z/dHlsZXMvYXJ0aWNs/ZS9wdWJsaWMvMjAy/NS0wOS9NQ19CTE9H/X1ZBQ0NJTkVTXzA5/MjI1LnBuZz9oPWY5/Nzg3MWI1Jml0b2s9/Q3JJaElybGk",
+    "category": "Healthcare"
+  }
+]
