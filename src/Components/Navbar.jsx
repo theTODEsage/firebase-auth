@@ -64,7 +64,7 @@ const Navbar = () => {
 
       {/* Right: Static Login Button */}
       <div className="navbar-end">
-        <Link to="/login" className="btn btn-sm btn-primary">
+        <Link to="/auth/login" className="btn btn-sm btn-primary">
           Login
         </Link>
       </div>
