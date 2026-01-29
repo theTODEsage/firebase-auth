@@ -16,17 +16,20 @@ const HeroSlider = () => {
             id={`slide${index}`}
             className="carousel-item relative w-full h-full flex items-center justify-center bg-gray-100"
           >
-            {/* Use object-contain instead of object-cover */}
+
+
             <img
               src={src}
               alt={`Slide ${index + 1}`}
               className="max-h-full max-w-full object-contain"
             />
 
-            {/* Optional gradient overlay */}
+ 
+
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20"></div>
 
-            {/* Navigation buttons */}
+
+
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a
                 href={`#slide${(index - 1 + images.length) % images.length}`}

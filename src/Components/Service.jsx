@@ -19,7 +19,8 @@ const Service = () => {
         Popular Winter Care Services
       </h1>
 
-      {/* Responsive grid */}
+
+
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {services.map((service) => (
           <ServiceCard key={service.serviceId} service={service} />

@@ -4,23 +4,55 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AuthLayout from "../Layouts/AuthLayout";
+import ServiceDetails from "../Pages/ServiceDetails";
+import MyProfile from "../Pages/MyProfile";
+import UpdateProfile from "../Pages/UpdateProfile";
+import ForgotPassword from "../Pages/ForgotPassword";
+import PrivateRoute from "../Components/PrivateRoute";
+import Service from "../Components/Service";
 
 const router = createBrowserRouter([
   {
-    path: "/", // Home pages
+    path: "/",
     element: <HomeLayout />,
     children: [
-      { path: "", element: <Home /> } // default child
-    ]
+      { path: "", element: <Home /> },
+      { path: "services", element: <Service /> },
+      {
+        path: "service/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update-profile",
+        element: (
+          <PrivateRoute>
+            <UpdateProfile />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
   {
-    path: "auth", // Auth pages wrapper
-    element: <AuthLayout />, // Navbar included here
+    path: "auth",
+    element: <AuthLayout />,
     children: [
-      { path: "login", element: <Login /> },     // /auth/login
-      { path: "register", element: <Register /> } // /auth/register
-    ]
-  }
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "forgot-password", element: <ForgotPassword /> },
+    ],
+  },
 ]);
 
 export default router;

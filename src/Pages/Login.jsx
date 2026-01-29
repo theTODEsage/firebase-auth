@@ -1,25 +1,46 @@
-import { use } from "react";
+import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
-  const {signIn} = use(AuthContext)
+  const { signIn, signInWithGoogle, setUser } = use(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const email = e.target.email.value 
-    const password = e.target.password.value 
-    
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
     signIn(email, password)
-    .then(result =>{
-      const user = result.user
-      console.log(user)
-    })
-    .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorCode, errorMessage)
-  });
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        toast.success("Login successful!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error("Invalid email or password");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        toast.success("Logged in with Google!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -36,26 +57,39 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="input input-bordered border-2 border-black w-full"
               required
             />
           </div>
 
-          {/* Password */}
+          {/* Password with Toggle */}
           <div className="form-control w-full relative">
             <label className="label">
               <span className="label-text font-semibold">Password</span>
             </label>
             <input
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="input input-bordered border-2 border-black w-full pr-10"
               required
             />
-            
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-12 text-gray-600"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+
             <label className="label">
-              <a href="/forgot-password" className="label-text-alt text-blue-500 link link-hover">
+              <a
+                href={`/auth/forgot-password?email=${email}`}
+                className="label-text-alt text-blue-500 link link-hover"
+              >
                 Forgot Password?
               </a>
             </label>
@@ -66,9 +100,13 @@ const Login = () => {
             Login
           </button>
 
+          {/* Divider */}
+          <div className="divider">OR</div>
+
           {/* Social Login */}
           <button
             type="button"
+            onClick={handleGoogleSignIn}
             className="btn btn-outline btn-accent w-full flex items-center justify-center gap-2"
           >
             <FaGoogle /> Continue with Google
@@ -78,7 +116,10 @@ const Login = () => {
         {/* Signup Link */}
         <p className="text-center mt-4 text-gray-600">
           Don't have an account?{" "}
-          <a href="/auth/register" className=" text-blue-500 font-semibold link-hover">
+          <a
+            href="/auth/register"
+            className=" text-blue-500 font-semibold link-hover"
+          >
             Sign Up
           </a>
         </p>

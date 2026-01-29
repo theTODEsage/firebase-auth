@@ -4,7 +4,8 @@ import { Link } from "react-router";
 const ServiceCard = ({ service }) => {
   return (
     <div className="card bg-base-100 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-      {/* Image */}
+
+
       <figure className="h-48 sm:h-56 lg:h-64 w-full overflow-hidden">
         <img
           src={service.image}
@@ -13,7 +14,8 @@ const ServiceCard = ({ service }) => {
         />
       </figure>
 
-      {/* Content */}
+
+
       <div className="card-body flex flex-col justify-between p-4">
         <div>
           <h2 className="card-title text-lg sm:text-xl font-bold mb-2">
@@ -24,7 +26,8 @@ const ServiceCard = ({ service }) => {
             {service.description}
           </p>
 
-          {/* Rating + Price */}
+
+
           <div className="flex items-center justify-between mt-2">
             <span className="badge badge-primary text-black px-2 py-1 text-sm sm:text-base">
               ⭐ {service.rating}
@@ -33,9 +36,13 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
 
-        {/* View Details Button */}
+
+
         <div className="card-actions justify-end mt-4">
-          <Link to={``} className="btn btn-sm sm:btn-md btn-outline btn-primary w-full sm:w-auto">
+          <Link
+            to={`/service/${service.serviceId}`}
+            className="btn btn-sm sm:btn-md btn-outline btn-primary w-full sm:w-auto"
+          >
             View Details
           </Link>
         </div>

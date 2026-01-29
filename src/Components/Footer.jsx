@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-gray-200 mt-12">
       <div className="max-w-7xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3">
-        {/* Contact Info */}
         <div>
           <h2 className="text-xl font-bold mb-4">WarmPaws</h2>
           <p>Email: info@warmpaws.com</p>
@@ -13,7 +12,7 @@ const Footer = () => {
           <p>Address: 123 Winter St, Cozy City, USA</p>
         </div>
 
-        {/* Quick Links / Privacy */}
+
         <div>
           <h2 className="text-xl font-bold mb-4">Quick Links</h2>
           <ul className="space-y-2">
@@ -24,7 +23,8 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Links */}
+
+
         <div>
           <h2 className="text-xl font-bold mb-4">Follow Us</h2>
           <div className="flex space-x-4">
@@ -36,7 +36,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
+
+
       <div className="border-t border-gray-700 text-center py-4 text-sm">
         &copy; {new Date().getFullYear()} WarmPaws. All rights reserved.
       </div>

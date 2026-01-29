@@ -6,11 +6,11 @@ import { Outlet } from "react-router";
 const HomeLayout = () => {
   return (
     <>
-      <Navbar /> {/* Navbar always visible */}
+      <Navbar /> 
       <main className="min-h-[80vh]">
-        <Outlet /> {/* Child pages render here */}
+        <Outlet /> 
       </main>
-      <Footer /> {/* Footer only on Home pages */}
+      <Footer />
     </>
   );
 };
